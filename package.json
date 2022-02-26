@@ -1,0 +1,22 @@
+{
+  "name": "node-rest-api",
+  "version": "1.0.0",
+  "description": "API ejempo curso Angular UCreativa",
+  "main": "index.js",
+  "scripts": {
+    "local": "ENVIRONMENT=local nodemon index.js",
+    "start": "ENVIRONMENT=production node index.js",
+    "dev": "ENVIRONMENT=develop nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edel Agüero M",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
