@@ -14,12 +14,15 @@ class DataBaseHelper {
         let result = null;
 
         pool = new Pool({
-            host: "localhost",
-            database: "postgres",
-            user: "postgres",
-            password: "postgres",
+            host: "ec2-54-156-110-139.compute-1.amazonaws.com",
+            database: "d5251m70nm0dnb",
+            user: "ouqftlqbrrjjwo",
+            password: "14e7f860da783089671e6fd6365df50cabb44f03215b6c2aa8487e0718218393",
             port: 5432,
-            max: 25
+            max: 25,
+            ssl: { // para conectarse con heroku
+                rejectUnauthorized: false
+            }
         });
 
         let getPoolConnect = async () => {
@@ -31,11 +34,8 @@ class DataBaseHelper {
             const client = await pool.connect();
 
             try {
-                await client.query('BEGIN');
                 result = await client.query(sql);
-                await client.query('COMMIT');
             } catch (error) {
-                await client.query('ROLLBACK');
                 throw error;
             } finally {
                 client.release(true);
